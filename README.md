@@ -8,4 +8,4 @@ O DevOps visa automatizar e integrar os processos de desenvolvimento de software
 Em resumo, a SRE e o DevOps ajudam as empresas a acelerar os lançamentos de produtos, ao mesmo tempo que melhoram a confiabilidade dos mesmos. A principal diferença entre SRE e DevOps reside no foco. A SRE concentra-se na entrega e na estabilidade do ambiente de produção, enquanto o DevOps foca-se no ciclo de vida completo da aplicação.
 
 ##
-Front-end simples de um contador para validar conceitos da disciplina de DevOps
+Front-end simples de um to-do list para validar conceitos da disciplina de DevOps
