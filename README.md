@@ -6,3 +6,6 @@ A SRE (Site Reliability Engineering) visa aprimorar a automação da repetibilid
 O DevOps visa automatizar e integrar os processos de desenvolvimento de software e operações de TI. Tornou-se uma alternativa popular às equipes isoladas de desenvolvimento e operações do passado. O DevOps cria uma abordagem colaborativa e multidisciplinar que acelera a entrega de software e melhora a eficiência geral. Ele concentra-se na resolução de problemas de desenvolvimento e no suporte aos requisitos de negócios.
 ##
 Em resumo, a SRE e o DevOps ajudam as empresas a acelerar os lançamentos de produtos, ao mesmo tempo que melhoram a confiabilidade dos mesmos. A principal diferença entre SRE e DevOps reside no foco. A SRE concentra-se na entrega e na estabilidade do ambiente de produção, enquanto o DevOps foca-se no ciclo de vida completo da aplicação.
+
+##
+Front-end simples de uma lista de tarefas para validar conceitos da disciplina de DevOps
