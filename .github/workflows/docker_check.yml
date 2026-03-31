@@ -23,3 +23,6 @@ jobs:
       
       - name: build
         run: docker build -t julia353/devops-satc:0.0.1 .
+
+      - name: Push Docker image
+        run: docker push docker.io/julia353/satc-devops:0.0.2  
