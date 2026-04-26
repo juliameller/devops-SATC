@@ -12,6 +12,12 @@ function App() {
     setNovaTarefa("");
   }
 
+  function pressionarEnter(e) {
+    if (e.key === "Enter") {
+      adicionarTarefa();
+    }
+  }
+
   return (
     <div className="container">
       <div className="card">
@@ -23,6 +29,7 @@ function App() {
             placeholder="Digite uma tarefa"
             value={novaTarefa}
             onChange={(e) => setNovaTarefa(e.target.value)}
+            onKeyDown={pressionarEnter}
           />
 
           <button onClick={adicionarTarefa}>
@@ -35,6 +42,18 @@ function App() {
             <li key={index}>{tarefa}</li>
           ))}
         </ul>
+
+        <footer
+          style={{
+            textAlign: "center",
+            marginTop: "20px",
+            padding: "10px",
+            fontSize: "14px",
+            color: "#666",
+          }}
+        >
+          © 2026 Julia Meller
+        </footer>
       </div>
     </div>
   );
