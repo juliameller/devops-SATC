@@ -1,9 +1,12 @@
 FROM node:20-alpine
 # RUN apk update && apk upgrade
-WORKDIR /app
-COPY . .
+# WORKDIR /app
+# COPY . .
 WORKDIR /app/frontend
+COPY frontend/package*.json ./
 RUN npm ci
+COPY frontend ./
 RUN npm run build
+USER node
 EXPOSE 4173
 CMD ["npm", "run", "preview"] 
