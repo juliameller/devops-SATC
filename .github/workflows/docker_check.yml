@@ -34,7 +34,7 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
       
       - name: build
-        run: docker build -t julia353/devops-satc:0.0.1 .
+        run: docker build --no-cache -t julia353/devops-satc:0.0.1 .
 
       - name: Push Docker image
         run: docker push docker.io/julia353/devops-satc:0.0.1  

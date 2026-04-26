@@ -3,7 +3,7 @@ RUN apk update && apk upgrade
 WORKDIR /app
 COPY . .
 WORKDIR /app/frontend
-RUN npm install
+RUN npm ci
 RUN npm run build
 EXPOSE 4173
 CMD ["npm", "run", "preview"] 
