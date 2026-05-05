@@ -1,4 +1,4 @@
-name: Docker Image Check
+name: Build
 
 on:
   push:
@@ -19,8 +19,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           args: >
-            -Dsonar.projectKey=juliameller_devops-SATC
-            -Dsonar.organization=juliameller
+            -Dsonar.projectKey=${{ secrets.DOCKER_USERNAME }}_devops-SATC
+            -Dsonar.organization=${{ secrets.DOCKER_USERNAME }}
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.sources=.
         env:
@@ -33,17 +33,18 @@ jobs:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
       
-      - name: build
-        run: docker build --no-cache -t julia353/devops-satc:0.0.1 .
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-satc:${{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push docker.io/julia353/devops-satc:0.0.1  
-
+        run: docker push docker.io/${{ secrets.DOCKER_USERNAME }}/devops-satc:${{ github.sha }}
+      
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'image'
-          image-ref: 'docker.io/julia353/devops-satc:0.0.1'
+          image-ref: 'docker.io/${{ secrets.DOCKER_USERNAME }}/devops-satc:${{ github.sha }}'
           format: json
           output: trivy-results.json
           severity: MEDIUM,HIGH,CRITICAL
