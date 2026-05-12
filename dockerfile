@@ -7,6 +7,6 @@ COPY frontend/package*.json ./
 RUN npm install
 COPY frontend ./
 RUN npm run build
-USER node
+# USER node
 EXPOSE 4173
 CMD ["npm", "run", "preview"] 
