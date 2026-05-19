@@ -1,10 +1,14 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = process.env.PORT || 4173;
 
-// endpoint health
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Health endpoint
 app.get("/health", (req, res) => {
   res.status(200).json({
     uptime: process.uptime(),
@@ -13,11 +17,11 @@ app.get("/health", (req, res) => {
   });
 });
 
-// servir build do React
+// Arquivos do React buildado
 app.use(express.static(path.join(__dirname, "dist")));
 
-// fallback React SPA
-app.get("*", (req, res) => {
+// Fallback para React Router / SPA
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
