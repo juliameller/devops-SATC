@@ -9,4 +9,4 @@ COPY frontend ./
 RUN npm run build
 # USER node
 EXPOSE 4173
-CMD ["npm", "run", "preview"] 
+CMD ["npm", "start"] 
